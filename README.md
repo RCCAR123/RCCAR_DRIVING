@@ -50,9 +50,8 @@
 - 주행 중 좌/우 방향 표시용 LED 연동
 - 수동/자율 모드 전환 시 시스템 상태 유지 및 안전 제어
 
----
 
-이 프로젝트는 단순 라인트레이싱을 넘어서, 실제 주행 도중 발생할 수 있는 다양한 상황(라인 미검출, 곡선, 정지 등)을 고려한 제어 로직까지 포함하고 있어, 임베디드 자율주행 시스템의 기초를 실습하기에 적합한 구조를 가집니다.
+이 프로젝트는 단순 라인트레이싱을 넘어서, 실제 주행 도중 발생할 수 있는 다양한 상황(라인 미검출, 곡선, 정지 등)을 고려한 제어 알고리즘을 설계하고 적용하였습니다.
 
 ---
 
@@ -63,17 +62,43 @@
 ---
 
 
-## 5. 사용 기술 스택 (Tech Stack)
+## 🧰 5. 사용 기술 스택 (Tech Stack)
 
-Raspberry Pi 5
+이 프로젝트는 하드웨어와 소프트웨어가 긴밀하게 통신하는 구조로, 아래와 같은 기술이 사용되었습니다.
 
-Arduino UNO
+---
 
-PiCamera2
+### 🧠 시스템 구성 요소
 
-Python (OpenCV, asyncio, websockets)
+| 구성 | 기술 스택 |
+|------|-----------|
+| **주행 제어** | Arduino UNO, C++, Servo 라이브러리, PinChangeInterrupt |
+| **영상 처리** | Raspberry Pi 5, PiCamera2, Python, OpenCV |
+| **통신** | USB 시리얼 (PySerial), WebSocket (Python websockets) |
+| **실시간 스트리밍** | OpenCV → WebSocket 전송 (브라우저 수신) |
 
-C++ (Arduino IDE)
+---
+
+### 📝 사용된 언어 및 주요 라이브러리
+
+#### 🔹 Raspberry Pi (Python)
+- `cv2` (OpenCV): 영상 처리 및 라인 인식
+- `asyncio`: 비동기 프레임 처리 및 서버 제어
+- `serial`: 아두이노와 시리얼 통신
+- `websockets`: 클라이언트에 영상 전송 (WebSocket 서버)
+
+#### 🔹 Arduino UNO (C++)
+- `Servo.h`: 서보 및 ESC 제어
+- `PinChangeInterrupt.h`: 수신 PWM 신호 인터럽트 처리
+- 사용자 정의 알고리즘: 후진 복귀, PD 제어, 지그재그 주행
+
+---
+
+### 🧪 개발 환경
+
+- Arduino IDE (C++)
+- Raspberry Pi OS (64-bit)
+- Python 3.9+
 
 ---
 
@@ -98,11 +123,37 @@ LED (좌/우 깜빡이)
 ---
 
 
-## 7. 소프트웨어 구성 (Software Architecture)
+## 🧩 7. 소프트웨어 구성 (Software Architecture)
 
-stream_ws_bidir.py: PiCamera2 영상 캡처 + 라인 중심 인식 + WebSocket 전송 + Arduino 시리얼 통신
+이 프로젝트는 Raspberry Pi와 Arduino가 역할을 분담하며 동작하는 구조로, 소프트웨어는 다음과 같이 구성되어 있습니다.
 
-main.ino: PWM 제어 기반 자율주행 로직 + 후진 및 지그재그 주행 알고리즘
+---
+
+### 🔹 Raspberry Pi (Python)
+
+**📁 stream_ws_bidir.py**
+
+- `PiCamera2`로 실시간 영상 캡처
+- `OpenCV`를 이용한 라인 중심 검출
+- 라인 중심 좌표를 **USB 시리얼**을 통해 아두이노로 전송
+- 영상 프레임을 WebSocket으로 전송하여 클라이언트에 실시간 스트리밍 제공
+
+> 💡 핵심 기능: 비전 처리 + 통신 + 웹 영상 송출
+
+---
+
+### 🔹 Arduino UNO (C++)
+
+**📁 RC_arduino.ino**
+
+- Raspberry Pi로부터 **라인 중심 좌표** 수신
+- PD 제어 및 지그재그 주행 알고리즘으로 **조향 및 속도 제어**
+- **라인 미검출 시 후진 복귀 로직** 수행
+- CH7 스위치를 통해 **수동/자율 모드 전환**
+- 주행 방향에 따라 **좌/우 깜빡이 LED 제어**
+- **인터럽트 기반 PWM 측정**으로 신속한 RC 입력 감지
+
+> 💡 핵심 기능: 자율주행 로직 + 모드 전환 + 하드웨어 제어
 
 ---
 
@@ -116,13 +167,63 @@ Arduino: 수신된 중심값 기반 주행 방향 및 속도 제어
 ---
 
 
-## 9. 라인 검출 및 자율주행 알고리즘 설명 (Line Detection & Driving Logic)
+## 🛣️ 9. 라인 검출 및 자율주행 알고리즘 설명 (Line Detection & Driving Logic)
 
-Otsu Threshold + Morphology 연산으로 라인 검출
+이 프로젝트는 PiCamera2를 통해 실시간으로 영상을 캡처하고, OpenCV를 이용해 라인을 인식합니다. 인식된 라인의 중심 좌표를 바탕으로 Arduino가 조향(PWM)과 속도를 제어합니다.
 
-최대 컨투어 중심값 계산 후 좌우 편차 기반 steering
+---
 
-Zigzag 주행 모드 + 후진 복구 기능 내장
+### 🎥 라인 검출 알고리즘 (Python - Raspberry Pi)
+
+`stream_ws_bidir.py` 내 `detect_line_center()` 함수에서 다음과 같은 과정을 거칩니다:
+
+1. **Grayscale 변환**  
+   → 색상 정보 제거로 라인 대비 강조
+
+2. **Gaussian Blur 적용**  
+   → 반사광/노이즈 완화
+
+3. **Otsu Thresholding**  
+   → 자동 임계값 이진화 (흰 배경 + 검은 라인 강조)
+
+4. **Morphological 연산 (열기/닫기)**  
+   → 노이즈 제거 및 끊어진 라인 복원
+
+5. **ROI 설정**  
+   → 하단 40% 영역만 분석하여 처리 속도 및 정확도 향상
+
+6. **Contour 분석**  
+   → 가장 넓은 컨투어를 기준으로 라인 중심 좌표(cx) 계산
+
+7. **중심값 시리얼 전송**  
+   → `"{cx}\n"` 형식으로 아두이노에 실시간 전송
+
+---
+
+### 🚗 자율주행 제어 알고리즘 (C++ - Arduino)
+
+`RC_arduino.ino`에서 다음과 같은 로직으로 주행을 제어합니다:
+
+#### 1. **PD 제어 (중심 오차 기반)**  
+- `error = 320 - rawCenter`  
+- `control = Kp * error + Kd * (이전 오차 변화량)`  
+- 계산된 control 값으로 **PWM 조향값 조절**
+
+#### 2. **지그재그 주행 알고리즘**
+- 중심 오차가 일정 이하이면 직진 판단
+- 좌/우로 100μs씩 주기적으로 방향을 토글하여 **지그재그로 미세조정**
+
+#### 3. **후진 복귀 로직**
+- 중심값이 일정 시간 동안 `-1`이면 **라인 상실 판단**
+- 일정 시간 후 **후진 시작 → 라인 재인식 → 전진 복귀**
+
+#### 4. **LED 방향등 연동**
+- 좌회전 시 왼쪽 LED, 우회전 시 오른쪽 LED 점등
+- 후진 시 양쪽 LED 점등
+
+---
+
+이러한 알고리즘은 단순 추종을 넘어서, 곡선 주행, 라인 손실, 경로 복구 등 **다양한 실제 상황에 대응할 수 있도록 설계**되어 있습니다.
 
 ---
 
