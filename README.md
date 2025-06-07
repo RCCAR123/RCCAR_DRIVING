@@ -1,7 +1,7 @@
 # "RC Car Autonomous Driving Project"
 
 
-🏁 1. 프로젝트 소개 (Introduction)
+## 1. 프로젝트 소개 (Introduction)
 
 이 프로젝트는 Raspberry Pi 5와 Arduino UNO를 기반으로 한 RC카 자율주행 시스템입니다.
 
@@ -26,7 +26,7 @@
 --- 
 ---  
 
-## 🎯 3. 프로젝트 개요 및 목표 (Overview & Objectives)
+## 3. 프로젝트 개요 및 목표 (Overview & Objectives)
 
 이 프로젝트는 RC카에 수동주행 기능과 자율주행 기능을 탑재하는 것을 목표로 하며, 방향에 따른 LED 제어를 실시간으로 ON/OFF하는 동작을 구현했습니다.
 구조는 다음과 같이 구성되어 있습니다.
@@ -99,7 +99,7 @@
 --- 
 
 
-## 🧰 5. 사용 기술 스택 (Tech Stack)
+## 5. 사용 기술 스택 (Tech Stack)
 
 이 프로젝트는 하드웨어와 소프트웨어가 긴밀하게 통신하는 구조로, 아래와 같은 기술이 사용되었습니다.
 
@@ -253,13 +253,13 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 
 > 자율주행 시스템은 라즈베리파이와 아두이노가 각각의 역할을 분담하여 협력적으로 작동하도록 설계되었습니다.
 
-### 🧠 Raspberry Pi 5
+### 🔹 Raspberry Pi 5
 - PiCamera2를 이용해 실시간 영상 캡처
 - OpenCV 기반 라인 중심 좌표 검출
 - 중심 좌표를 UART 시리얼로 Arduino에 전송
 - WebSocket을 통해 실시간 영상 스트리밍 제공
 
-### ⚙️ Arduino UNO
+### 🔹 Arduino UNO
 - Raspberry Pi로부터 수신한 중심 좌표 기반으로 주행 방향 판단
 - 서보모터(PWM)로 조향, ESC로 속도 제어
 - PD 제어 및 Zigzag 주행 알고리즘 수행
@@ -271,7 +271,7 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 ---
 ---
 
-## 🛣️ 9. 라인 검출 및 자율주행 알고리즘 설명 (Line Detection & Driving Logic)
+## 9. 라인 검출 및 자율주행 알고리즘 설명 (Line Detection & Driving Logic)
 
 이 프로젝트는 PiCamera2를 통해 실시간으로 영상을 캡처하고, OpenCV를 이용해 라인을 인식합니다. 인식된 라인의 중심 좌표를 바탕으로 Arduino가 조향(PWM)과 속도를 제어합니다.
 
@@ -326,7 +326,6 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 - 좌회전 시 왼쪽 LED, 우회전 시 오른쪽 LED 점등
 - 후진 시 양쪽 LED 점등
 
----
 
 > 이러한 알고리즘은 단순 추종을 넘어서, 곡선 주행, 라인 손실, 경로 복구 등 **다양한 실제 상황에 대응할 수 있도록 설계**되어 있습니다.
 
