@@ -1,6 +1,7 @@
 # "RC Car Autonomous Driving Project"
 
-> https://youtu.be/NpoDqATXl5s
+[![Watch the video](https://img.youtube.com/vi/NpoDqATXl5s/hqdefault.jpg)](https://youtu.be/NpoDqATXl5s)
+
 
 
 ## 1. 프로젝트 소개 (Introduction)
