@@ -232,7 +232,8 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 ### 🖼️ 회로 구성도 (Circuit Diagram)
 
 
-(![image](https://github.com/user-attachments/assets/aa4922d7-8114-475a-bb79-e73b63f94f1e))
+<img src="https://github.com/user-attachments/assets/aa4922d7-8114-475a-bb79-e73b63f94f1e" width="50%"/>
+
 
 ---
 --- 
