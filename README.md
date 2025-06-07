@@ -415,7 +415,8 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 - **해결 조치**: `Zigzag 알고리즘`으로 미세 조향 보정  
 - **결과**: 중심선을 따라 안정적으로 주행 가능
 
-<img src="https://github.com/user-attachments/assets/83a064ca-11c2-4b44-a60d-64b709fe0a0e" height="300"/>
+![linetracing_gif](https://github.com/user-attachments/assets/772c3a6e-45e4-44d4-b623-4fa6217a8a12)
+
 
 
 ### 🔹 [⑦] 곡선 구간 회전 부족
