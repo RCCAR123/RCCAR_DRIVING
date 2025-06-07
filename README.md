@@ -386,6 +386,8 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 - **해결 조치**: `Gaussian Blur` + `Otsu Thresholding` 적용  
 - **결과**: 반사광 제거 → 인식 정확도 향상
 
+![light](https://github.com/user-attachments/assets/b13aef01-f7f9-4a11-a9ca-50302dfa0b03)
+
 
 
 ### 🔹 [③] 라인 미검출 시 오작동
