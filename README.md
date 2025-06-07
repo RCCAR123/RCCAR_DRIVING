@@ -8,7 +8,6 @@
 
 ![image](https://github.com/user-attachments/assets/b3e743b1-003d-4b0a-a06c-40ddd3d92df5)
 
- ![Uploading image.png…]()
 
 이 프로젝트는 Raspberry Pi 5와 Arduino UNO를 기반으로 한 RC카 자율주행 시스템입니다.
 
