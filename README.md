@@ -434,13 +434,10 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 - **해결 조치**: 카메라 위치를 상단으로 조정 후 고정  
 - **결과**: 라인만 인식 → 오작동 방지
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/37377039-813f-4e88-ad1e-6a22b0e1bb9e" width="60%"/>
-</p>
+<img src="https://github.com/user-attachments/assets/37377039-813f-4e88-ad1e-6a22b0e1bb9e" width="50%"/>
+<br>
+<img src="https://github.com/user-attachments/assets/56ccdb59-1874-4f2f-ad1e-e08480864740" width="50%"/>
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/56ccdb59-1874-4f2f-ad1e-e08480864740" width="60%"/>
-</p>
 
 
 
