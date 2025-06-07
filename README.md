@@ -434,6 +434,10 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 - **해결 조치**: 카메라 위치를 상단으로 조정 후 고정  
 - **결과**: 라인만 인식 → 오작동 방지
 
+<p align="center">
+  <img src="KakaoTalk_20250607_17464652_8번.png" width="48%" style="margin-right:2%"/>
+  <img src="KakaoTalk_20250607_174622400_8번.jpg" width="48%"/>
+</p>
 
 
 
