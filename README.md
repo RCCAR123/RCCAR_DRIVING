@@ -14,8 +14,7 @@
 
 
 ## 2. 자율주행 데모 영상 (Demo Video)  
-[
-https://imgur.com/a/JJLAdPA](https://i.imgur.com/9A8NuqC.mp4)
+![자율주행](https://i.imgur.com/abcd123.gif)
 ---
 
 ## 🎯 3. 프로젝트 개요 및 목표 (Overview & Objectives)
