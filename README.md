@@ -15,9 +15,8 @@
 
 ## 2. 자율주행 데모 영상 (Demo Video)  
 
-![short_autonomous_drive](https://github.com/user-attachments/assets/317216a0-cf85-4695-bb53-b04c526021ed)
-
-![autonomous_segment_10s_15s](https://github.com/user-attachments/assets/80f364b3-f1d0-4e85-9276-427e4c75b610)
+![short_autonomous_drive](./assets/short_autonomous_drive.gif)
+![자율주행 장면](./assets/autonomous_segment_10s_15s.gif)
 
 
 ---
