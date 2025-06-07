@@ -435,9 +435,11 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 - **결과**: 라인만 인식 → 오작동 방지
 
 <p align="center">
-  <img src="KakaoTalk_20250607_17464652_8번.png" width="48%" style="margin-right:2%"/>
-  <img src="KakaoTalk_20250607_174622400_8번.jpg" width="48%"/>
+  <img src="https://github.com/user-attachments/assets/37377039-813f-4e88-ad1e-6a22b0e1bb9e" width="48%" style="margin-right:2%"/>
+  <img src="https://github.com/user-attachments/assets/56ccdb59-1874-4f2f-ad1e-e08480864740" width="48%"/>
 </p>
+
+
 
 
 
