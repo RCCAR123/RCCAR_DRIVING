@@ -410,7 +410,7 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 - **해결 조치**: 인터럽트 기반 `PWM 측정` + 최적값 보정  
 - **결과**: 안정적인 속도 제어 가능
 
-<img src="https://github.com/user-attachments/assets/a622392a-3a75-42b0-a4fc-fe2de697828a" width="50%">
+<img src="https://github.com/user-attachments/assets/a622392a-3a75-42b0-a4fc-fe2de697828a" width="40%">
 
 
 
