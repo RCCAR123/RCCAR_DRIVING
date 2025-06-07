@@ -215,6 +215,26 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 | **UART 시리얼 케이블**                | Raspberry Pi ↔ Arduino 간 중심좌표 데이터 송수신 (TX/RX 연결)        
 
 
+### 🔌 핀 연결표 (Wiring Table)
+
+| 장치 / 역할         | 아두이노 핀 번호 | 연결 대상                      | 설명                              |
+|---------------------|------------------|-------------------------------|-----------------------------------|
+| 서보모터 (조향)     | D7               | Steering Servo (신호선)       | PWM으로 조향 제어                  |
+| ESC (모터 속도)     | D6               | ESC (신호선)                  | PWM으로 모터 속도 제어             |
+| 수신기 CH2 (조향)   | D3               | RadioLink R9DS CH2            | RC 수동 조향 입력 (PWM)           |
+| 수신기 CH3 (스로틀) | D4               | RadioLink R9DS CH3            | RC 수동 가속 입력 (PWM)           |
+| 수신기 CH7 (모드)   | D8               | RadioLink R9DS CH7            | 자율/수동 모드 스위치 입력 (PWM)  |
+| 왼쪽 방향 LED       | D10              | LED (+극)                     | 좌회전 시 점등                     |
+| 오른쪽 방향 LED     | D9               | LED (+극)                     | 우회전 또는 후진 시 점등          |
+| UART RX             | —                | Raspberry Pi TX (GPIO14)      | 중심 좌표 수신                     |
+| UART TX             | —                | Raspberry Pi RX (GPIO15)      | (옵션: 필요 시 아두이노 → Pi 통신) |
+| 배터리              | VIN/GND          | 7.4V~12V 배터리 팩            | 전원 공급                         |
+
+### 🖼️ 회로 구성도 (Circuit Diagram)
+
+
+![Wiring Diagram](![image](https://github.com/user-attachments/assets/dda84bae-515b-49a2-80a4-2a2ee0caf2e9))
+
 ---
 --- 
 
