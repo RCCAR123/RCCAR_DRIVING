@@ -1,4 +1,4 @@
-# "RC Car Autonomous Driving Project"
+# "🏎️ RC Car Autonomous Driving Project"
 
 [![Watch the video](https://img.youtube.com/vi/NpoDqATXl5s/hqdefault.jpg)](https://youtu.be/NpoDqATXl5s)
 
