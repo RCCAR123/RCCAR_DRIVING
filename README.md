@@ -15,10 +15,7 @@
 
 ## 2. 자율주행 데모 영상 (Demo Video)  
 
-![short_autonomous_drive](./assets/short_autonomous_drive.gif)
-![자율주행 장면](./assets/autonomous_segment_10s_15s.gif)
-
-
+https://imgur.com/a/JJLAdPA
 ---
 
 ## 🎯 3. 프로젝트 개요 및 목표 (Overview & Objectives)
