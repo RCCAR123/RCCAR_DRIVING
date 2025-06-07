@@ -226,14 +226,13 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 | 수신기 CH7 (모드)   | D8               | RadioLink R9DS CH7            | 자율/수동 모드 스위치 입력 (PWM)  |
 | 왼쪽 방향 LED       | D10              | LED (+극)                     | 좌회전 시 점등                     |
 | 오른쪽 방향 LED     | D9               | LED (+극)                     | 우회전 또는 후진 시 점등          |
-| UART RX             | —                | Raspberry Pi TX (GPIO14)      | 중심 좌표 수신                     |
-| UART TX             | —                | Raspberry Pi RX (GPIO15)      | (옵션: 필요 시 아두이노 → Pi 통신) |
 | 배터리              | VIN/GND          | 7.4V~12V 배터리 팩            | 전원 공급                         |
+
 
 ### 🖼️ 회로 구성도 (Circuit Diagram)
 
 
-![Wiring Diagram](![image](https://github.com/user-attachments/assets/dda84bae-515b-49a2-80a4-2a2ee0caf2e9))
+(![image](https://github.com/user-attachments/assets/aa4922d7-8114-475a-bb79-e73b63f94f1e))
 
 ---
 --- 
