@@ -1,4 +1,4 @@
-# stream_ws_bidir_commented.py
+# camera_stream.py
 # WebSocket 기반 라인트레이싱 및 시리얼 통신 서버 (Picamera2 -> Arduino -> 브라우저)
 
 import asyncio                          # 비동기 처리(이벤트 루프, sleep 등)
