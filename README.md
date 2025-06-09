@@ -54,7 +54,7 @@
 ![image](https://github.com/user-attachments/assets/b3e743b1-003d-4b0a-a06c-40ddd3d92df5)
 
 
-이 프로젝트는 Raspberry Pi 5와 Arduino UNO를 기반으로 한 RC카 자율주행 시스템입니다.
+**이 프로젝트는 Raspberry Pi 5와 Arduino UNO를 기반으로 한 RC카 자율주행 시스템입니다.**
 
 카메라를 통해 라인을 실시간으로 인식하고, 아두이노가 해당 정보를 받아 차량의 방향과 속도를 제어함으로써, RC카가 경로를 스스로 따라 주행할 수 있도록 설계되었습니다.
 
