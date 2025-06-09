@@ -266,7 +266,7 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 --- 
 
 
-## 🧩 7. 소프트웨어 구성 (Software Architecture)
+## 7. 소프트웨어 구성 (Software Architecture)
 
 이 프로젝트는 Raspberry Pi와 Arduino가 역할을 분담하며 동작하는 구조로, 소프트웨어는 다음과 같이 구성되어 있습니다.
 
