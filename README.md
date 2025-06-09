@@ -2,6 +2,7 @@
 
 [![Watch the video](https://img.youtube.com/vi/NpoDqATXl5s/hqdefault.jpg)](https://youtu.be/NpoDqATXl5s)
 
+---
 
 ## 목차
 📋 목차
@@ -24,7 +25,7 @@
 
 
 
-## 1. 프로젝트 소개 (Introduction)
+# 1. 프로젝트 소개 (Introduction)
 
 ![image](https://github.com/user-attachments/assets/b3e743b1-003d-4b0a-a06c-40ddd3d92df5)
 
