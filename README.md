@@ -4,7 +4,7 @@
 
 ---
 
-## 목차
+# 목차
 📋 목차
 
 [1. 프로젝트 소개 (Introduction)](#1-프로젝트-소개-introduction)  
@@ -45,7 +45,7 @@
 --- 
 
 
-## 2. 자율주행 데모 (Demo)  
+# 2. 자율주행 데모 (Demo)  
 ![자율주행 데모](https://i.imgur.com/E7pzR8D.gif)
 
 ![중간 주행](https://i.imgur.com/9A8NuqC.gif)
@@ -53,7 +53,7 @@
 --- 
 ---  
 
-## 3. 프로젝트 개요 및 목표 (Overview & Objectives)
+# 3. 프로젝트 개요 및 목표 (Overview & Objectives)
 
 이 프로젝트는 RC카에 수동주행 기능과 자율주행 기능을 탑재하는 것을 목표로 하며, 방향에 따른 LED 제어를 실시간으로 ON/OFF하는 동작을 구현했습니다.
 구조는 다음과 같이 구성되어 있습니다.
@@ -90,7 +90,7 @@
 ---
 --- 
 
-## 4. 전체 시스템 구성도 (System Architecture)
+# 4. 전체 시스템 구성도 (System Architecture)
 
 ### 📌 시스템 블록 다이어그램
 
@@ -123,7 +123,7 @@
 --- 
 
 
-## 5. 사용 기술 스택 (Tech Stack)
+# 5. 사용 기술 스택 (Tech Stack)
 
 > 이 프로젝트는 하드웨어와 소프트웨어가 긴밀하게 통신하는 구조로, 아래와 같은 기술이 사용되었습니다.
 
@@ -218,7 +218,7 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 --- 
 
 
-## 6. 하드웨어 구성 (Hardware Components)
+# 6. 하드웨어 구성 (Hardware Components)
 
 | 구성 요소                             |  설명                                                                     
 | ------------------------------------- | -------------------------------------------------------                   
@@ -266,8 +266,7 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 ---
 --- 
 
-
-## 7. 소프트웨어 구성 (Software Architecture)
+# 7. 소프트웨어 구성 (Software Architecture)
 
 이 프로젝트는 Raspberry Pi와 Arduino가 역할을 분담하며 동작하는 구조로, 소프트웨어는 다음과 같이 구성되어 있습니다.
 
@@ -302,7 +301,7 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 ---
 
 
-## 8. 라즈베리파이 & 아두이노 역할 (Raspberry Pi & Arduino Integration)
+# 8. 라즈베리파이 & 아두이노 역할 (Raspberry Pi & Arduino Integration)
 
 > 자율주행 시스템은 라즈베리파이와 아두이노가 각각의 역할을 분담하여 협력적으로 작동하도록 설계되었습니다.
 
@@ -335,7 +334,7 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 ---
 
 
-## 9. 이미지 처리 및 라인트레이싱을 위한 제어 방법 (Image Processing & Line Detection)
+# 9. 이미지 처리 및 라인트레이싱을 위한 제어 방법 (Image Processing & Line Detection)
 
 > 이 프로젝트는 PiCamera2를 통해 실시간으로 영상을 캡처하고, OpenCV를 이용해 라인을 인식합니다. 인식된 라인의 중심 좌표를 바탕으로 Arduino가 조향(PWM)과 속도를 제어합니다.
 
@@ -385,9 +384,9 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 
 
 
-## 10. 핵심 코드 설명 (Key Code Explanation)
+# 10. 핵심 코드 설명 (Key Code Explanation)
 
-#### 📌 Arduino 핵심 코드
+## 📌 Arduino 핵심 코드
 
 ## 🔁 1) 라인 중심 좌표 수신 (Serial 입력)
 
@@ -461,7 +460,7 @@ steerOut = constrain(pwmCenter + int(control), 1000, 2000);      //  PWM 범위 
 
 ---
 
-#### 📌 Raspberry 핵심 코드
+## 📌 Raspberry 핵심 코드
 
 ## 🔁 1) detect_line_center 함수 (단계별 설명)
 
@@ -575,7 +574,7 @@ if __name__ == '__main__':
 
 
 
-## 11. 문제 해결 및 시행착오 기록 (Challenges & Iterative Improvements)
+# 11. 문제 해결 및 시행착오 기록 (Challenges & Iterative Improvements)
 
 
 ### 🔹 [①] 카메라 지연으로 자율주행 실패
@@ -666,7 +665,7 @@ if __name__ == '__main__':
 
 
 
-## 12. 팀원 소개 및 기여도 (Team & Contributions)
+# 12. 팀원 소개 및 기여도 (Team & Contributions)
 
 ### 📌 핵심 분담 요약
 > 박기주: 인식 알고리즘 설계자 + 상위 자율 로직 설계자
@@ -712,7 +711,7 @@ if __name__ == '__main__':
 ---
 
 
-## 13. 향후 계획 (Future Plans)
+# 13. 향후 계획 (Future Plans)
 
 > 본 프로젝트는 현재 라인트레이싱 기반의 기본 자율주행 기능까지 구현된 상태이며,
 다음과 같은 기능 확장을 통해 더 정교하고 실용적인 RC카 자율주행 시스템으로 발전시킬 예정
@@ -736,7 +735,7 @@ if __name__ == '__main__':
 ---
 
 
-## 14. 마무리 및 회고 (Conclusion & Retrospective)
+# 14. 마무리 및 회고 (Conclusion & Retrospective)
 
 ### ▶ 박기주 - 이번 RC_Car 프로젝트를 마무리하며,
 
