@@ -236,7 +236,9 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 
 <img src="https://github.com/user-attachments/assets/aa4922d7-8114-475a-bb79-e73b63f94f1e" width="50%"/>
 
-![image](https://github.com/user-attachments/assets/0d6150b3-a5e2-46b0-9a56-49171b6c07de)
+![compressed_image](https://github.com/user-attachments/assets/6c50ad38-2635-4e4b-afbb-a3ce42ccfabb)
+
+![compressed_image2](https://github.com/user-attachments/assets/f1ecae5a-4e0d-4c0b-b115-6355f86344e9)
 
 
 
