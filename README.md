@@ -546,7 +546,9 @@ async def main():
 if __name__ == '__main__':
     asyncio.run(main())
 ``` 
+---
 
+> 자세한 코드 설명은 코드 주석 참고 바랍니다.
 ---
 ---  
 
