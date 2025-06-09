@@ -364,11 +364,62 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 
 
 
-## 10. 코드 설명 (Key Code Explanation)
+## 10. 핵심 코드 설명 (Key Code Explanation)
 
-📌 stream_ws_bidir.py, main.ino 에서 주요 함수와 흐름 요약 설명 추가 예정
+📌 Arduino 핵심 코드
 
+## 🔌 1. 라인 중심 좌표 수신 (Serial 입력)
 
+```cpp
+while (Serial.available()) {
+  char c = Serial.read();
+  if (c == '\n') {
+    rawCenter = serialBuffer.toInt();      //  Raspberry Pi로부터 "320\n" 형태의 중심 좌표를 수신
+    lastSerialTime = millis();             //  수신 시간 기록
+    serialBuffer = "";                     //  버퍼 초기화
+  } else {
+    serialBuffer += c;                     //  문자 누적
+  }
+}
+```
+
+## 🔁 2. 라인 손실 시 후진 복귀 로직
+
+```cpp
+if (!reversing && rawCenter == -1)          // ❌ 라인을 감지하지 못하면
+  reversing = true;                         //    후진 모드로 전환
+
+if (reversing && rawCenter >= 0 && reversingReleaseTime == 0)
+  reversingReleaseTime = millis() + 20;     // ✅ 라인 재인식 시 지연 후 전진 복귀 예약
+
+if (reversing && reversingReleaseTime > 0 && millis() >= reversingReleaseTime) {
+  reversing = false;                        // 🔁 전진 모드 복귀
+  reversingReleaseTime = 0;                 // 🧼 타이머 초기화
+  prevTime = millis();                      // 🕓 타이밍 기록
+}
+```
+
+## ⚖️ 3. 지그재그 직진 보정
+```cpp
+if (abs(error) < straightThreshold) {                               //  오차가 작을 경우 직진 간주
+  if (now - zigzagLastToggle >= zigzagPeriod) {                      //  전환 주기 도달 시
+    zigzagDir = !zigzagDir;                                          //  좌우 방향 전환
+    zigzagLastToggle = now;                                          //  시점 업데이트
+  }
+  steerOut = pwmCenter + (zigzagDir ? zigzagAmplitude : -zigzagAmplitude); //  조향 보정
+  throttleOut = straightSpeed;                                      // 직진 속도 유지
+}
+```
+
+## 📐 4. PD 제어 기반 조향 보정
+```cpp
+float Pout = kp * float(error);                                 // 📏 비례 제어(P)
+float derivative = (error - prevError) / (dt > 0 ? dt : 1e-3);   // 📉 변화율 계산(D)
+float Dout = kd * derivative;
+float control = Pout + Dout;                                     // ⚖️ 최종 제어값
+
+steerOut = constrain(pwmCenter + int(control), 1000, 2000);      // 🎯 PWM 범위 내로 조향값 설정
+```
 
 ---
 ---  
