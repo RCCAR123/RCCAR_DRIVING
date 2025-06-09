@@ -24,7 +24,7 @@
 --- 
 
 
-## 2. 자율주행 데모 영상 (Demo Video)  
+## 2. 자율주행 데모 (Demo)  
 ![자율주행 데모](https://i.imgur.com/E7pzR8D.gif)
 
 ![중간 주행](https://i.imgur.com/9A8NuqC.gif)
@@ -236,7 +236,7 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 
 <img src="https://github.com/user-attachments/assets/aa4922d7-8114-475a-bb79-e73b63f94f1e" width="50%"/>
 
-![compressed_image](https://github.com/user-attachments/assets/6c50ad38-2635-4e4b-afbb-a3ce42ccfabb)
+<img src="https://github.com/user-attachments/assets/6c50ad38-2635-4e4b-afbb-a3ce42ccfabb" width="50%">
 
 ![compressed_image2](https://github.com/user-attachments/assets/f1ecae5a-4e0d-4c0b-b115-6355f86344e9)
 
