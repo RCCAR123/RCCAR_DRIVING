@@ -614,53 +614,57 @@ if __name__ == '__main__':
 
 ## 🔹 [②] 반사광 오인식
 ![light](https://github.com/user-attachments/assets/b13aef01-f7f9-4a11-a9ca-50302dfa0b03)
+   
 - **원인 / 현상**: 밝은 바닥 반사광을 라인으로 오인 → 후진 반복  
 - **해결 조치**: `Gaussian Blur(고주파 반사광 엣지 완화)` + `Otsu Thresholding(자동으로 최적 임계값 적용)` 적용  
 - **결과**: 반사광 제거 → 인식 정확도 향상
 
-![light](https://github.com/user-attachments/assets/b13aef01-f7f9-4a11-a9ca-50302dfa0b03)
+
 
 
 
 ## 🔹 [③] 라인 검출 시 노이즈
+![image](https://github.com/user-attachments/assets/32fc1695-ad4c-4be9-bfbc-d986b71fcbb4)
+
 - **원인 / 현상**: 반사광·작은 이물질에 의한 점(스팟)이 바이너리 영상에 섞여 컨투어가 끊기거나 잡음으로 검출
 
 - **해결 조치**: 모폴로지 열림/닫힘 연산으로 작은 노이즈(스팟) 제거
 
 - **결과**: 노이즈가 제거돼 깨끗한 바이너리 영상 확보 → 컨투어 검출이 안정화
 
-![image](https://github.com/user-attachments/assets/32fc1695-ad4c-4be9-bfbc-d986b71fcbb4)
+
 
 
 
 ## 🔹 [④] 전진 후 바로 후진 불가
+![mode](https://github.com/user-attachments/assets/cb8f691d-fa5e-4723-b5aa-5c5321dec413)
 
 - **원인 / 현상**: ESC 기본 모드에선 전진 후 바로 후진 불가 (보호 로직 작동)
 - **해결 조치**: RC카 내장 모드 전환 버튼으로 자유 전/후진 모드로 변경
 - **결과**: 전진 ↔ 후진 자유로운 전환 가능, 자율주행 중 회복 가능
 
-![mode](https://github.com/user-attachments/assets/cb8f691d-fa5e-4723-b5aa-5c5321dec413)
+
 
 
 
 ## 🔹 [⑤] PWM 값 오류
+<img src="https://github.com/user-attachments/assets/a622392a-3a75-42b0-a4fc-fe2de697828a" width="40%">
 
 - **원인 / 현상**: PWM 값 부정확해 속도 부족 또는 급발진 → 차체 손상
 - **해결 조치**: 인터럽트 기반 `PWM 측정` + 최적값 보정  
 - **결과**: 안정적인 속도 제어 가능
 
-<img src="https://github.com/user-attachments/assets/a622392a-3a75-42b0-a4fc-fe2de697828a" width="40%">
 
 
 
 
 ## 🔹 [⑥] 직진 중 선 이탈
+![linetracing_gif](https://github.com/user-attachments/assets/772c3a6e-45e4-44d4-b623-4fa6217a8a12)
 
 - **원인 / 현상**: 중심 오차가 작아도 직선 주행 중 선을 놓침  
 - **해결 조치**: `Zigzag 알고리즘`으로 미세 조향 보정  
 - **결과**: 중심선을 따라 안정적으로 주행 가능
 
-![linetracing_gif](https://github.com/user-attachments/assets/772c3a6e-45e4-44d4-b623-4fa6217a8a12)
 
 
 
@@ -672,14 +676,14 @@ if __name__ == '__main__':
 
 
 ## 🔹 [⑧] 범퍼 오인식 문제
+<img src="https://github.com/user-attachments/assets/37377039-813f-4e88-ad1e-6a22b0e1bb9e" width="50%"/>
+<br>
+<img src="https://github.com/user-attachments/assets/56ccdb59-1874-4f2f-ad1e-e08480864740" width="50%"/>
 
 - **원인 / 현상**: 카메라 하단에 범퍼가 잡혀 라인으로 오인식  
 - **해결 조치**: 카메라 위치를 상단으로 조정 후 고정  
 - **결과**: 라인만 인식 → 오작동 방지
 
-<img src="https://github.com/user-attachments/assets/37377039-813f-4e88-ad1e-6a22b0e1bb9e" width="50%"/>
-<br>
-<img src="https://github.com/user-attachments/assets/56ccdb59-1874-4f2f-ad1e-e08480864740" width="50%"/>
 
 
 
