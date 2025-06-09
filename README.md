@@ -370,6 +370,8 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 
 ## 🔌 1. 라인 중심 좌표 수신 (Serial 입력)
 
+📡 Raspberry Pi로부터 직선 중심 좌표를 Serial로 받아 차량 제어의 기준으로 사용합니다.
+
 ```cpp
 while (Serial.available()) {
   char c = Serial.read();
@@ -382,28 +384,33 @@ while (Serial.available()) {
   }
 }
 ```
-📡 Raspberry Pi로부터 직선 중심 좌표를 Serial로 받아 차량 제어의 기준으로 사용합니다.
+
 
 
 ## 🔁 2. 라인 손실 시 후진 복귀 로직
 
+🚗 라인을 인식하지 못하면 자동으로 후진하고, 라인을 다시 찾으면 일정 시간 뒤 전진 모드로 전환됩니다.
+
 ```cpp
-if (!reversing && rawCenter == -1)          // ❌ 라인을 감지하지 못하면
+if (!reversing && rawCenter == -1)          //  라인을 감지하지 못하면
   reversing = true;                         //    후진 모드로 전환
 
 if (reversing && rawCenter >= 0 && reversingReleaseTime == 0)
-  reversingReleaseTime = millis() + 20;     // ✅ 라인 재인식 시 지연 후 전진 복귀 예약
+  reversingReleaseTime = millis() + 20;     //  라인 재인식 시 지연 후 전진 복귀 예약
 
 if (reversing && reversingReleaseTime > 0 && millis() >= reversingReleaseTime) {
-  reversing = false;                        // 🔁 전진 모드 복귀
-  reversingReleaseTime = 0;                 // 🧼 타이머 초기화
-  prevTime = millis();                      // 🕓 타이밍 기록
+  reversing = false;                        //  전진 모드 복귀
+  reversingReleaseTime = 0;                 //  타이머 초기화
+  prevTime = millis();                      //  타이밍 기록
 }
 ```
-🚗 라인을 인식하지 못하면 자동으로 후진하고, 라인을 다시 찾으면 일정 시간 뒤 전진 모드로 전환됩니다.
+
 
 
 ## ⚖️ 3. 지그재그 직진 보정
+
+🟰 오차가 작을 경우 직진으로 간주하고, 좌우 조향을 주기적으로 전환하여 라인 이탈을 방지합니다.
+
 ```cpp
 if (abs(error) < straightThreshold) {                               //  오차가 작을 경우 직진 간주
   if (now - zigzagLastToggle >= zigzagPeriod) {                      //  전환 주기 도달 시
@@ -414,10 +421,13 @@ if (abs(error) < straightThreshold) {                               //  오차�
   throttleOut = straightSpeed;                                      // 직진 속도 유지
 }
 ```
-🟰 오차가 작을 경우 직진으로 간주하고, 좌우 조향을 주기적으로 전환하여 라인 이탈을 방지합니다.
+
 
 
 ## 📐 4. PD 제어 기반 조향 보정
+
+📏 중심 오차와 변화량을 기반으로 조향 PWM을 정밀하게 보정하여 부드럽고 정확한 주행을 구현합니다.
+
 ```cpp
 float Pout = kp * float(error);                                 //  비례 제어(P)
 float derivative = (error - prevError) / (dt > 0 ? dt : 1e-3);   //  변화율 계산(D)
@@ -426,7 +436,7 @@ float control = Pout + Dout;                                     //  최종 제�
 
 steerOut = constrain(pwmCenter + int(control), 1000, 2000);      //  PWM 범위 내로 조향값 설정
 ```
-📏 중심 오차와 변화량을 기반으로 조향 PWM을 정밀하게 보정하여 부드럽고 정확한 주행을 구현합니다.
+
 
 ---
 
