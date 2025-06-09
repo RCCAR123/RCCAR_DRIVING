@@ -252,8 +252,8 @@
 | **Arduino UNO**                       | PWM 기반 모터/조향 제어, 후진 복귀 로직, Zigzag 알고리즘, LED 표시          
 | **ESC (Electronic Speed Controller)** | 브러시리스 모터 속도 제어 (Arduino PWM 제어 신호 수신)                      
 | **서보모터 (Steering Servo)**         | RC카의 좌/우 방향 조향 제어 (PWM 기반)                                      
-| **RadioLink AT9 송신기**              | 수동 조작, CH7 스위치를 통한 자율/수동 모드 전환 신호 송신                   
-| **RadioLink R9DS 수신기**             | AT9에서 송신된 PWM 신호 수신, 특히 CH7 채널을 Arduino로 전달                
+| **AT9 송신기**              | 수동 조작, CH7 스위치를 통한 자율/수동 모드 전환 신호 송신                   
+| **R9DS 수신기**             | AT9에서 송신된 PWM 신호 수신, 특히 CH7 채널을 Arduino로 전달                
 | **LED (좌/우 방향, 후진 표시용)**     | 실시간 방향 조향 및 후진 시 상태 시각화 표시 (디지털 출력 제어)              
 | **배터리 팩 (7.4V\~12V)**             | Raspberry Pi 및 모터 시스템에 전원 공급       
 | **점퍼 케이블 / 브레드보드**          | 각 하드웨어 간 연결 및 프로토타이핑에 사용                                
