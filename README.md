@@ -366,7 +366,7 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 
 ## 10. 핵심 코드 설명 (Key Code Explanation)
 
-📌 Arduino 핵심 코드
+### 📌 Arduino 핵심 코드
 
 ## 🔌 1. 라인 중심 좌표 수신 (Serial 입력)
 
@@ -427,6 +427,54 @@ float control = Pout + Dout;                                     //  최종 제�
 steerOut = constrain(pwmCenter + int(control), 1000, 2000);      //  PWM 범위 내로 조향값 설정
 ```
 📏 중심 오차와 변화량을 기반으로 조향 PWM을 정밀하게 보정하여 부드럽고 정확한 주행을 구현합니다.
+
+---
+
+### 📌 Raspberry 핵심 코드
+
+3) detect_line_center 함수 (단계별 설명)
+
+Gaussian Blur
+
+blur = cv2.GaussianBlur(gray, (5,5), 0)
+
+반사광과 작은 잡음을 부드럽게 처리해 이진화 안정성을 높입니다.
+
+모폴로지 열림 (Open)
+
+open_img = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)
+
+침식→팽창으로 작은 스팟 노이즈를 제거합니다.
+
+모폴로지 닫힘 (Close)
+
+clean = cv2.morphologyEx(open_img, cv2.MORPH_CLOSE, kernel)
+
+팽창→침식으로 선 내부 구멍을 메웁니다.
+
+ROI 설정
+
+y0 = int(h * 0.6)
+roi = clean[y0:h, :]
+
+하단 40% 영역만 선택해 연산 효율화합니다.
+
+컨투어 검출 & 필터링
+
+contours, _ = cv2.findContours(roi, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+cnt = max(contours, key=cv2.contourArea)
+if cv2.contourArea(cnt) < 500: return -1, clean, y0, []
+
+면적 최대 컨투어를 선택하고, 500픽셀 미만은 무시합니다.
+
+중심점 계산 & 보정
+
+M = cv2.moments(cnt)
+cx = int(M['m10']/M['m00']) if M['m00'] else -1
+cnt[:, 0, 1] += y0
+
+컨투어 모멘트로 중심 x좌표를 계산하고, ROI 오프셋을 적용합니다.
+
 
 
 ---
