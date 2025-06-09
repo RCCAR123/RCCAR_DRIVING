@@ -18,19 +18,33 @@
 
 
 [1. 프로젝트 소개 (Introduction)](#1-프로젝트-소개-introduction)  
+
 [2. 자율주행 데모 (Demo)](#2-자율주행-데모-demo)  
+
 [3. 프로젝트 개요 및 목표 (Overview & Objectives)](#3-프로젝트-개요-및-목표-overview--objectives)  
+
 [4. 전체 시스템 구성도 (System Architecture)](#4-전체-시스템-구성도-system-architecture)  
+
 [5. 사용 기술 스택 (Tech Stack)](#5-사용-기술-스택-tech-stack)  
+
 [6. 하드웨어 구성 (Hardware Components)](#6-하드웨어-구성-hardware-components)  
+
 [7. 소프트웨어 구성 (Software Architecture)](#7-소프트웨어-구성-software-architecture)  
+
 [8. 라즈베리파이 & 아두이노 역할 (Raspberry Pi & Arduino Integration)](#8-라즈베리파이--아두이노-역할-raspberry-pi--arduino-integration)  
+
 [9. 이미지 처리 및 라인트레이싱을 위한 제어 방법 (Image Processing & Line Detection)](#9-이미지-처리-및-라인트레이싱을-위한-제어-방법-image-processing--line-detection)  
+
 [10. 핵심 코드 설명 (Key Code Explanation)](#10-핵심-코드-설명-key-code-explanation)  
+
 [11. 문제 해결 및 시행착오 기록 (Challenges & Iterative Improvements)](#11-문제-해결-및-시행착오-기록-challenges--iterative-improvements)  
+
 [12. 팀원 소개 및 기여도 (Team & Contributions)](#12-팀원-소개-및-기여도-team--contributions)  
+
 [13. 향후 계획 (Future Plans)](#13-향후-계획-future-plans)  
+
 [14. 마무리 및 회고 (Conclusion & Retrospective)](#14-마무리-및-회고-conclusion--retrospective)  
+
 
 
 ---
