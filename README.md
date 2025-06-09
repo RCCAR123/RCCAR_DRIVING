@@ -131,55 +131,55 @@
 > 이 프로젝트는 하드웨어와 소프트웨어가 긴밀하게 통신하는 구조로, 아래와 같은 기술이 사용되었습니다.
 
 ### 🔹 Raspberry Pi 5 (Python 기반)
-Python 3.11
+- `Python 3.11`
 
-**Picamera2**: 카메라를 통한 실시간 영상 캡처
+- `Picamera2`: 카메라를 통한 실시간 영상 캡처
 
-**OpenCV**: 라인 중심 검출, 노이즈 제거, 컨투어 기반 객체 인식
+- `OpenCV`: 라인 중심 검출, 노이즈 제거, 컨투어 기반 객체 인식
 
-**asyncio + WebSocket**: 실시간 영상 스트리밍 (브라우저 대응)
+- `asyncio + WebSocket`: 실시간 영상 스트리밍 (브라우저 대응)
 
-**pyserial**: UART 기반 아두이노와 시리얼 통신
+- `pyserial`: UART 기반 아두이노와 시리얼 통신
 
 ### 🔹 Arduino UNO (C++ 기반)
-**Arduino IDE**: 펌웨어 개발 및 업로드
+- `Arduino IDE`: 펌웨어 개발 및 업로드
 
-**Servo 라이브러리**: 서보모터(PWM) 제어
+- `Servo 라이브러리`: 서보모터(PWM) 제어
 
-**PinChangeInterrupt 라이브러리**: PPM 신호 인터럽트 처리
+- `PinChangeInterrupt 라이브러리`: PPM 신호 인터럽트 처리
 
-**PWM 제어**: 조향(서보) 및 속도(ESC) 조절
+- `PWM 제어`: 조향(서보) 및 속도(ESC) 조절
 
-**PD 제어 알고리즘**: 라인 중심 오차 기반의 조향 계산
+- `PD 제어 알고리즘`: 라인 중심 오차 기반의 조향 계산
 
-**Zigzag 주행 알고리즘**: 직진 시 미세 조향 반복을 통한 안정성 확보
+- `Zigzag 주행 알고리즘`: 직진 시 미세 조향 반복을 통한 안정성 확보
 
-**라인 손실 복구 로직**: 선 미검출 시 후진 후 재진입
+- `라인 손실 복구 로직`: 선 미검출 시 후진 후 재진입
 
-**LED 제어**: 좌/우 방향, 후진 상황 표시용
+- `LED 제어`: 좌/우 방향, 후진 상황 표시용
 
 ### 🔹 통신 및 영상 전송
-**UART Serial 통신**: Raspberry Pi → Arduino로 라인 중심 좌표 전송
+- `UART Serial 통신`: Raspberry Pi → Arduino로 라인 중심 좌표 전송
 
-**WebSocket**: Raspberry Pi → 웹 클라이언트로 영상 전송
+- `WebSocket`: Raspberry Pi → 웹 클라이언트로 영상 전송
 
 ### 🔹 하드웨어 구성 요소
-**PiCamera2**: 640×480 해상도, 프레임 단위 영상 인식
+- `PiCamera2`: 640×480 해상도, 프레임 단위 영상 인식
 
-**Servo Motor**: 좌우 방향 조향 제어
+- `Servo Motor`: 좌우 방향 조향 제어
 
-**ESC + 브러시리스 모터**: 전진/후진 속도 제어
+- `ESC + 브러시리스 모터`: 전진/후진 속도 제어
 
-**LED**: 좌우 및 후진 방향 시각화
+- `LED`: 좌우 및 후진 방향 시각화
 
 ### 🔹 개발 및 문서화 도구
-**Arduino IDE**: 펌웨어 작성 및 업로드
+- `Arduino IDE`: 펌웨어 작성 및 업로드
 
-**VSCode**: Raspberry Pi 측 Python 코드 작성 및 관리
+- `VSCode`: Raspberry Pi 측 Python 코드 작성 및 관리
 
-**GitHub**: 코드 버전 관리 및 프로젝트 문서화
+- `GitHub`: 코드 버전 관리 및 프로젝트 문서화
 
-**Imgur**: GIF 기반 시각 자료 업로드 및 README 연동
+- `Imgur`: GIF 기반 시각 자료 업로드 및 README 연동
 
 ---
 
