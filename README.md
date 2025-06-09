@@ -2,6 +2,9 @@
 
 [![Watch the video](https://img.youtube.com/vi/NpoDqATXl5s/hqdefault.jpg)](https://youtu.be/NpoDqATXl5s)
 
+
+[![Watch on YouTube](https://img.youtube.com/vi/q-7_TcambCE/hqdefault.jpg)](https://youtube.com/shorts/q-7_TcambCE?feature=shared)
+
 ---
 
 # 목차
