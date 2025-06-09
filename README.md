@@ -388,7 +388,7 @@ Imgur: GIF 기반 시각 자료 업로드 및 README 연동
 
 ## 📌 Arduino 핵심 코드
 
-## 🔁 1) 라인 중심 좌표 수신 (Serial 입력)
+### 🔁 1) 라인 중심 좌표 수신 (Serial 입력)
 
 🔹Raspberry Pi로부터 직선 중심 좌표를 Serial로 받아 차량 제어의 기준으로 사용합니다.
 
@@ -407,7 +407,7 @@ while (Serial.available()) {
 
 
 
-## 🔁 2) 라인 손실 시 후진 복귀 로직
+### 🔁 2) 라인 손실 시 후진 복귀 로직
 
 🔹 라인을 인식하지 못하면 자동으로 후진하고, 라인을 다시 찾으면 일정 시간 뒤 전진 모드로 전환됩니다.
 
@@ -427,7 +427,7 @@ if (reversing && reversingReleaseTime > 0 && millis() >= reversingReleaseTime) {
 
 
 
-## 🔁 3) 지그재그 직진 보정
+### 🔁 3) 지그재그 직진 보정
 
 🔹오차가 작을 경우 직진으로 간주하고, 좌우 조향을 주기적으로 전환하여 라인 이탈을 방지합니다.
 
@@ -444,7 +444,7 @@ if (abs(error) < straightThreshold) {                               //  오차�
 
 
 
-## 🔁 4) PD 제어 기반 조향 보정
+### 🔁 4) PD 제어 기반 조향 보정
 
 🔹 중심 오차와 변화량을 기반으로 조향 PWM을 정밀하게 보정하여 부드럽고 정확한 주행을 구현합니다.
 
@@ -462,7 +462,7 @@ steerOut = constrain(pwmCenter + int(control), 1000, 2000);      //  PWM 범위 
 
 ## 📌 Raspberry 핵심 코드
 
-## 🔁 1) detect_line_center 함수 (단계별 설명)
+### 🔁 1) detect_line_center 함수 (단계별 설명)
 
 🔹 반사광과 작은 잡음을 부드럽게 처리하여 이진화 안정성을 높입니다. 
 
@@ -507,7 +507,7 @@ M = cv2.moments(cnt); cx = int(M['m10']/M['m00']) if M['m00'] else -1; cnt[:,0,1
 
 
   
-## 🔁 2) WebSocket 스트리밍 핸들러: stream (단계별 설명)
+### 🔁 2) WebSocket 스트리밍 핸들러: stream (단계별 설명)
 
 🔹 카메라 초기화 > Picamera2를 640×480 해상도로 설정 후 스트리밍 준비
 ```cpp
@@ -549,7 +549,7 @@ finally:
 ```
 ___
 
-## 🔁 3) 메인 함수: main   
+### 🔁 3) 메인 함수: main   
 🔹asyncio.run(main()): 이벤트 루프 실행
 
 🔹websockets.serve: stream 핸들러 등록
@@ -667,7 +667,7 @@ if __name__ == '__main__':
 
 # 12. 팀원 소개 및 기여도 (Team & Contributions)
 
-### 📌 핵심 분담 요약
+## 📌 핵심 분담 요약
 > 박기주: 인식 알고리즘 설계자 + 상위 자율 로직 설계자
 → Vision 처리, 판단 흐름 설계, 실시간 스트리밍 및 통신 구조 담당
 
