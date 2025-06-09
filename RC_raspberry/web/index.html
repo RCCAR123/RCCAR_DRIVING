@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Raspberry Pi 카메라 스트리밍</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 30px; }
+    img { border: 2px solid #333; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h2>📷 실시간 카메라 스트리밍 (WebSocket)</h2>
+  <img id="video" width="640" height="480" alt="스트리밍 영상" />
+  <p id="status">🔄 연결 중...</p>
+
+  <script>
+    const img = document.getElementById('video');
+    const status = document.getElementById('status');
+    let ws;
+
+    function connectWebSocket() {
+      ws = new WebSocket('ws://' + location.hostname + ':8765/');
+
+      ws.onopen = () => {
+        console.log('✅ WebSocket 연결 성공');
+        status.textContent = '✅ 실시간 스트리밍 중';
+      };
+
+      ws.onmessage = ev => {
+        img.src = 'data:image/jpeg;base64,' + ev.data;
+      };
+
+      ws.onclose = () => {
+        console.warn('❌ WebSocket 연결 종료됨. 재연결 시도 중...');
+        status.textContent = '🔁 연결 끊김, 재시도 중...';
+        setTimeout(connectWebSocket, 2000);
+      };
+
+      ws.onerror = err => {
+        console.error('⚠️ WebSocket 오류:', err);
+        status.textContent = '⚠️ 연결 오류 발생';
+        ws.close();
+      };
+    }
+
+    connectWebSocket();
+  </script>
+</body>
+</html>
