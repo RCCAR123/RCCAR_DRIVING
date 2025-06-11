@@ -300,7 +300,7 @@
 
 ### 🔹 Raspberry Pi (Python)
 
-**📁 stream_ws_bidir.py**
+**📁 camera_stream.py**
 
 - `PiCamera2`로 실시간 영상 캡처
 - `OpenCV`를 이용한 라인 중심 검출
