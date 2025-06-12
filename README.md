@@ -457,6 +457,7 @@ if (reversing && reversingReleaseTime > 0 && millis() >= reversingReleaseTime) {
 ### 🔁 3) 지그재그 직진 보정
 
 🔹오차가 작을 경우 직진으로 간주하고, 좌우 조향을 주기적으로 전환하여 라인 이탈을 방지합니다.
+> 지그재그 모드 사용시 짧은 주기동안 좌우로 방향을 전화하기 때문에 LED가 매우 빠르게 전환되는 것을 볼 수 있으나, 코드에서 실시간으로 작동되는 것을 확인할 수 있습니다.
 
 ```cpp
 if (abs(error) < straightThreshold) {                               //  오차가 작을 경우 직진 간주
